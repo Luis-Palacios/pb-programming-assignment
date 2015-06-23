@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv-import.webapi", "csv-import.webapi\csv-import.webapi.csproj", "{443F1FF7-14CC-4A2A-9D51-BD11DBAB6D07}"
+EndProject
+Global
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 063918c9-286f-4951-a022-8281c7d82c47
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{443F1FF7-14CC-4A2A-9D51-BD11DBAB6D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443F1FF7-14CC-4A2A-9D51-BD11DBAB6D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443F1FF7-14CC-4A2A-9D51-BD11DBAB6D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443F1FF7-14CC-4A2A-9D51-BD11DBAB6D07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
