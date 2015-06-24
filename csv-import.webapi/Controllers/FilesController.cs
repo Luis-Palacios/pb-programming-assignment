@@ -49,7 +49,6 @@ namespace csv_import.webapi.Controllers
             
             AddFilesToResult(files, newResult, existentEmails, ref duplicated, ref added);
             
-            
             UpdateResult(newResult, duplicated, added);
             SaveResult(newResult, timer);
             
@@ -57,8 +56,6 @@ namespace csv_import.webapi.Controllers
 
         private void SaveResult(ImportResult newResult, Stopwatch timer)
         {
-            _importResultRepository.Insert(newResult);
-            _importResultRepository.Save();
             timer.Stop();
             newResult.ExecutionTime = timer.ElapsedMilliseconds/1000d;
             _importResultRepository.Update(newResult);
@@ -72,19 +69,28 @@ namespace csv_import.webapi.Controllers
             newResult.ExecutionTime = 0;
         }
 
-        private static void AddFilesToResult(IEnumerable<File> files, ImportResult newResult, IEnumerable<string> existentEmails, ref int duplicated, ref int added)
+        private void AddFilesToResult(IEnumerable<File> files, ImportResult newResult, IEnumerable<string> existentEmails, ref int duplicated, ref int added)
         {
-            
+            _importResultRepository.Insert(newResult);
+            _importResultRepository.Save();
+            var newFiles = new List<File>();
             foreach (var file in files)
             {
                 if (existentEmails.Any(e => e == file.Email))
+                {
                     duplicated++;
+                }
                 else
                 {
                     added++;
-                    newResult.ImportedFiles.Add(file);
+                    //this sucked ad performances when inserting the parent objects:/
+                    //newResult.ImportedFiles.Add(file);
+                    file.ImportResultId = newResult.Id;
+                    newFiles.Add(file);
                 }
             }
+            _fileRepository.BulkInsert(newFiles);
+            existentEmails = null;
         }
 
         private static ImportResult InitResult(IEnumerable<File> files)

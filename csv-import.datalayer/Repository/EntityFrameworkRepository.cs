@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using EntityFramework.BulkInsert.Extensions;
+using System.Transactions;
 
 namespace csv_import.datalayer.Repositories
 {
@@ -17,8 +19,10 @@ namespace csv_import.datalayer.Repositories
         public EntityFrameworkRepository()
         {
             Db = new AccountManagerContext();
-            Table = Db.Set<T>();
             Db.Configuration.LazyLoadingEnabled = false;
+            Db.Configuration.AutoDetectChangesEnabled = false;
+            Db.Configuration.ValidateOnSaveEnabled = false;
+            Table = Db.Set<T>();
         }
 
         public IEnumerable<T> SelectAll()
@@ -34,6 +38,16 @@ namespace csv_import.datalayer.Repositories
         public void Insert(T obj)
         {
             Table.Add(obj);
+        }
+
+        public void BulkInsert(IEnumerable<T> objs)
+        {
+            using (var transactionScope = new TransactionScope())
+            {
+                Db.BulkInsert(objs);
+                Db.SaveChanges();
+                transactionScope.Complete();
+            }
         }
 
         public void Update(T obj)
@@ -68,5 +82,6 @@ namespace csv_import.datalayer.Repositories
                 Table = null;
             }
         }
+
     }
 }

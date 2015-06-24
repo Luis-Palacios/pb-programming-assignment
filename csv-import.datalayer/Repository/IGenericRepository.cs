@@ -13,6 +13,8 @@ namespace csv_import.datalayer.Repositories
 
         void Insert(T obj);
 
+        void BulkInsert(IEnumerable<T> objs);
+
         void Update(T obj);
 
         void Delete(object id);
