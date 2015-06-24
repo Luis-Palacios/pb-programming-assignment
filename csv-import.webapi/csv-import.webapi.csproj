@@ -149,6 +149,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImportResultsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,7 +207,16 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\csv-import.datalayer\csv-import.datalayer.csproj">
+      <Project>{7a3e99a1-03a0-4ad7-bc36-55959db18197}</Project>
+      <Name>csv-import.datalayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\csv-import.domain\csv-import.domain.csproj">
+      <Project>{a22e7700-2918-4ea9-b8be-554ebe96c30a}</Project>
+      <Name>csv-import.domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
