@@ -4,34 +4,39 @@
     angular
         .module("accountManagement")
         .controller("DashboardController",
-                    ["importResource", "$scope", "$http",
+                    ["importResource", "$scope", "dashboardResource",
                     DashboardController]);
 
-    function DashboardController(importResource, $scope, $http) {
+    function DashboardController(importResource, $scope, dashboardResource) {
         $scope.title = "Dashboard";
-        importResource.query({ last: true }, function (data) {
-            if (data.length > 0) {
-                $scope.lastImport = data[0];
-                $scope.message = "Data from last import";
-            }
-            else {
-                $scope.lastImport = {}
-                $scope.message = "No imports yet";
-            }
-        })
+        $scope.state = "Upload a File"
+
+        getLastImportData();
 
         $scope.upload = function () {
-            
-            var data = [];
-            for (var i = 0; i < 100000; i++) {
-                data.push($scope.fileContent[i]);
-            }
-            $http.post('http://localhost:23730/api/files', data)
+            $scope.state = "Uploading data this may take a while..."
+            dashboardResource.uploadFile($scope.fileContent)
             .success(function (response) {
-                console.log(response);
+                $scope.state = "Upload a File";
+                getLastImportData();
+                $scope.loaded = 'animated bounce'
             });
-           
+
         };
+
+        function getLastImportData() {
+            importResource.query({ last: true }, function (data) {
+                if (data.length > 0) {
+                    $scope.lastImport = data[0];
+                    $scope.message = "Data from last import";
+                }
+                else {
+                    $scope.lastImport = {}
+                    $scope.message = "No imports yet";
+                }
+            });
+        };
+
     }
 
 }());

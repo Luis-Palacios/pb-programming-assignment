@@ -20,6 +20,7 @@ namespace csv_import.datalayer.Configurations
             this.Property(p => p.Phone).HasMaxLength(20).IsRequired();
             this.Property(p => p.Country).HasMaxLength(20).IsRequired();
             this.Property(p => p.Gender).HasMaxLength(1).IsRequired();
+            this.Property(p => p.BirthDate).HasColumnType("Date").IsRequired();
             this.Property(p => p.Email).IsRequired().HasMaxLength(100).HasColumnAnnotation(
                "Index",
                new IndexAnnotation(new[]

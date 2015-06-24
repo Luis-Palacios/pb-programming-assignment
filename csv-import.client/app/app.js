@@ -57,15 +57,13 @@
 
             var obj = {};
             var currentline = lines[i].split(",");
-
             for (var j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentline[j];
+                obj[headers[j].trim()] = (currentline[j]) ? currentline[j].trim():'';
             }
-
+           
             result.push(obj);
 
         }
-
         return result; 
     }
 

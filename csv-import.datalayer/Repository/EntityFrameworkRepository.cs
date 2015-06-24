@@ -49,7 +49,14 @@ namespace csv_import.datalayer.Repositories
 
         public void Save()
         {
-            Db.SaveChanges();
+            try
+            {
+                Db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                var x = ex;
+            }
         }
 
         public void Dispose()

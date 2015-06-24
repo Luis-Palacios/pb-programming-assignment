@@ -8,6 +8,7 @@
     <link href="Content/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="Content/AdminLTE.min.css" rel="stylesheet" />
     <link href="Content/skin-blue.css" rel="stylesheet" type="text/css" />
+    <link href="Content/animate.css" rel="stylesheet" />
 </head>
 <body class="skin-blue sidebar-mini">
     <div class="wrapper">
@@ -63,9 +64,8 @@
 
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            
             <!-- Main content -->
-            <section class="content" ng-view></section>
+            <section class="content animated fadeIn"  ng-view></section>
             <!-- /.content -->
         </div><!-- /.content-wrapper -->
 
@@ -89,6 +89,7 @@
     <!-- Services -->
     <script src="common/common.services.js"></script>
     <script src="common/importResource.js"></script>
+    <script src="common/dashboardResource.js"></script>
 
     <!-- Import Controllers -->
 

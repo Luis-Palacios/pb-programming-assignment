@@ -27,7 +27,7 @@ namespace csv_import.webapi.Controllers
         public IEnumerable<ImportResult> Get(bool last)
         {
             if(last)
-                 return new ImportResult[] { _repository.SelectAll().Last() };
+                 return new ImportResult[] { _repository.SelectAll().LastOrDefault() };
             return Get();
         }
 
