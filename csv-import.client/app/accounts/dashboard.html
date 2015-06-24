@@ -1,0 +1,90 @@
+﻿<section class="content-header">
+    <h1>
+        Dashboard
+        <small>{{message}}</small>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="fa fa-file"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Lines in file</span>
+                    <span class="info-box-number">{{lastImport.totalLines}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-upload"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Imported</span>
+                    <span class="info-box-number">{{lastImport.totalLinesImported}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-exclamation"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Not Imported</span>
+                    <span class="info-box-number">{{lastImport.totalLinesNotImported}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-clock-o"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Execution Time</span>
+                    <span class="info-box-number">{{lastImport.executionTime}}</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Upload a file</h3>
+                    <div class="box-tools">
+                        <div class="input-group">
+                            <input type="file" style="display:inline-block;" file-reader="fileContent" />
+                            &nbsp;
+                            <button type="button" class="btn btn-sm btn-info" ng-click="upload()"><i class="fa fa-upload"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>State Province</th>
+                                <th>Zip Postal Code</th>
+                                <th>Phone</th>
+                                <th>Birth Date</th>
+                                <th>Gender</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

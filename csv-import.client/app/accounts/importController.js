@@ -4,14 +4,12 @@
     angular
         .module("accountManagement")
         .controller("ImportController",
-                    ["importResource",
+                    ["importResource","$scope",
                         ImportController]);
 
-    function ImportController(importResource) {
-        var vm = this;
-
+    function ImportController(importResource, $scope) {
         importResource.query(function (data) {
-            vm.imports = data;
+            $scope.imports = data;
         });
 
     }

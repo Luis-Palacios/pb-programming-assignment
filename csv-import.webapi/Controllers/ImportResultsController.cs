@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace csv_import.webapi.Controllers
 {
+    
     public class ImportResultsController : ApiController
     {
         private readonly IGenericRepository<ImportResult> _repository;
@@ -22,10 +24,18 @@ namespace csv_import.webapi.Controllers
             return _repository.SelectAll();
         }
 
-        // GET: api/ImportResults/5
-        public string Get(int id)
+        public IEnumerable<ImportResult> Get(bool last)
         {
-            return "value";
+            if(last)
+                 return new ImportResult[] { _repository.SelectAll().Last() };
+            return Get();
+        }
+
+
+        // GET: api/ImportResults/5
+        public ImportResult Get(int id)
+        {
+            return _repository.Find(id);
         }
 
         // POST: api/ImportResults

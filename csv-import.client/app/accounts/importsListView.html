@@ -17,11 +17,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="import in vm.imports">
-                    <td>{{ import.TotalLines }}</td>
-                    <td>{{ import.TotalLinesImported }}</td>
-                    <td>{{ import.TotalLinesNotImported }}</td>
-                    <td>{{ import.ExecutionTime }}</td>
+                <tr ng-repeat="import in imports">
+                    <td>{{ import.totalLines }}</td>
+                    <td>{{ import.totalLinesImported }}</td>
+                    <td>{{ import.totalLinesNotImported }}</td>
+                    <td>{{ import.executionTime }}</td>
                 </tr>
             </tbody>
         </table>
