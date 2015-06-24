@@ -27,6 +27,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "csv-import.client", "http:/
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv-import.datalayer", "csv-import.datalayer\csv-import.datalayer.csproj", "{7A3E99A1-03A0-4AD7-BC36-55959DB18197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csv-import.domain", "csv-import.domain\csv-import.domain.csproj", "{A22E7700-2918-4EA9-B8BE-554EBE96C30A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{F7429980-1077-4AEF-A549-C6744967E6F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7429980-1077-4AEF-A549-C6744967E6F9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7429980-1077-4AEF-A549-C6744967E6F9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{7A3E99A1-03A0-4AD7-BC36-55959DB18197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A3E99A1-03A0-4AD7-BC36-55959DB18197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A3E99A1-03A0-4AD7-BC36-55959DB18197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A3E99A1-03A0-4AD7-BC36-55959DB18197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22E7700-2918-4EA9-B8BE-554EBE96C30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22E7700-2918-4EA9-B8BE-554EBE96C30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22E7700-2918-4EA9-B8BE-554EBE96C30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22E7700-2918-4EA9-B8BE-554EBE96C30A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
