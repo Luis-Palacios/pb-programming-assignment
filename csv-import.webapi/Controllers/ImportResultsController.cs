@@ -11,7 +11,7 @@ namespace csv_import.webapi.Controllers
 {
     public class ImportResultsController : ApiController
     {
-        private readonly IGenericRepository<ImportResult> _repository;
+        private IGenericRepository<ImportResult> _repository;
 
         public ImportResultsController(IGenericRepository<ImportResult> repository)
         {
@@ -41,6 +41,15 @@ namespace csv_import.webapi.Controllers
         // DELETE: api/ImportResults/5
         public void Delete(int id)
         {
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _repository.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
