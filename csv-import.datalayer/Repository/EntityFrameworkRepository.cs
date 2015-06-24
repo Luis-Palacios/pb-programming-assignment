@@ -18,6 +18,7 @@ namespace csv_import.datalayer.Repositories
         {
             Db = new AccountManagerContext();
             Table = Db.Set<T>();
+            Db.Configuration.LazyLoadingEnabled = false;
         }
 
         public IEnumerable<T> SelectAll()
@@ -49,14 +50,7 @@ namespace csv_import.datalayer.Repositories
 
         public void Save()
         {
-            try
-            {
-                Db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                var x = ex;
-            }
+            Db.SaveChanges();
         }
 
         public void Dispose()

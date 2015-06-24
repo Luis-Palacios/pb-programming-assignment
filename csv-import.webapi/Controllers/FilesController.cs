@@ -74,6 +74,7 @@ namespace csv_import.webapi.Controllers
 
         private static void AddFilesToResult(IEnumerable<File> files, ImportResult newResult, IEnumerable<string> existentEmails, ref int duplicated, ref int added)
         {
+            
             foreach (var file in files)
             {
                 if (existentEmails.Any(e => e == file.Email))
@@ -94,15 +95,14 @@ namespace csv_import.webapi.Controllers
             };
             return newResult;
         }
-
-        // PUT: api/Files/5
-        public void Put(int id, [FromBody]string value)
+        protected override void Dispose(bool disposing)
         {
-        }
-
-        // DELETE: api/Files/5
-        public void Delete(int id)
-        {
+            if (disposing)
+            {
+                _fileRepository.Dispose();
+                _importResultRepository.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
