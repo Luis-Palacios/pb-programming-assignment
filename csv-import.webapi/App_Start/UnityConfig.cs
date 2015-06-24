@@ -17,6 +17,7 @@ namespace csv_import.webapi
             
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IGenericRepository<ImportResult>, EntityFrameworkRepository<ImportResult> >();
+            container.RegisterType<IGenericRepository<File>, EntityFrameworkRepository<File>>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

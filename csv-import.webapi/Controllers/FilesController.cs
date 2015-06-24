@@ -9,47 +9,39 @@ using System.Web.Http;
 
 namespace csv_import.webapi.Controllers
 {
-    public class ImportResultsController : ApiController
+    public class FilesController : ApiController
     {
-        private readonly IGenericRepository<ImportResult> _repository;
+        private readonly IGenericRepository<File> _repository;
 
-        public ImportResultsController(IGenericRepository<ImportResult> repository)
+        public FilesController(IGenericRepository<File> repository)
         {
             _repository = repository;
         }
-        public IEnumerable<ImportResult> Get()
+        // GET: api/Files
+        public IEnumerable<File> Get()
         {
             return _repository.SelectAll();
         }
 
-        // GET: api/ImportResults/5
+        // GET: api/Files/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/ImportResults
+        // POST: api/Files
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/ImportResults/5
+        // PUT: api/Files/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/ImportResults/5
+        // DELETE: api/Files/5
         public void Delete(int id)
         {
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _repository.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
