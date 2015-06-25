@@ -38,20 +38,6 @@ namespace csv_import.webapi.Controllers
             return _repository.Find(id);
         }
 
-        // POST: api/ImportResults
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/ImportResults/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/ImportResults/5
-        public void Delete(int id)
-        {
-        }
 
         protected override void Dispose(bool disposing)
         {
