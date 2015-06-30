@@ -1,6 +1,9 @@
 # pb-programming-assignment
 This is Programming assignment to check for programming skills
 
+## Author
+Luis Palacios
+
 ## Project Setup
 ### Create Database
 1. Set the connection string as need acording to your sql server instalation by default is: 
